@@ -31,11 +31,8 @@ export default function Repeatwords2() {
   };
 
   const readWord = () => {
-    if (currentWord && currentWord !== "Ajoyib! Siz tugatdingiz.") {
-      const utterance = new SpeechSynthesisUtterance(currentWord);
-      utterance.lang = 'uz-UZ'; // Set the language to Uzbek if needed
-      speechSynthesis.speak(utterance);
-    }
+    const utterance = new SpeechSynthesisUtterance(currentWord);
+    speechSynthesis.speak(utterance);
   };
 
   const resetWords = () => {
