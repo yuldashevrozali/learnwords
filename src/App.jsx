@@ -12,7 +12,7 @@ function App() {
         <Route path="/newwords" element={<Newwords />} />
         <Route path="/" element={<Home />} />
         <Route path="/repeatwords" element={<Repeatwords />} />
-        <Route path="/repeatwords2" element={<Repeatwords2 />} />
+        <Route path="/norepet" element={<Repeatwords2 />} />
         {/* Repeatwords komponentini keyinchalik qo'shishingiz mumkin */}
       </Routes>
     </BrowserRouter>
