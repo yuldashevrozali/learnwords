@@ -31,8 +31,22 @@ export default function Repeatwords2() {
   };
 
   const readWord = () => {
-    const utterance = new SpeechSynthesisUtterance(currentWord);
-    speechSynthesis.speak(utterance);
+    if (currentWord && currentWord !== "Ajoyib! Siz tugatdingiz.") {
+      const utterance = new SpeechSynthesisUtterance(currentWord);
+      utterance.lang = 'uz-UZ'; // Set the language to Uzbek if needed
+      
+      // Get available voices and select a default one if available
+      const voices = speechSynthesis.getVoices();
+      if (voices.length > 0) {
+        utterance.voice = voices.find(voice => voice.lang === 'uz-UZ') || voices[0];
+      }
+
+      // Ensure speech synthesis is triggered by user interaction
+      if (typeof window !== 'undefined' && window.speechSynthesis) {
+        window.speechSynthesis.cancel(); // Cancel any ongoing speech synthesis
+        window.speechSynthesis.speak(utterance);
+      }
+    }
   };
 
   const resetWords = () => {
